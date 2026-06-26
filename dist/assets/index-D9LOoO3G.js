@@ -1,0 +1,10 @@
+(function(){let e=document.createElement(`link`).relList;if(e&&e.supports&&e.supports(`modulepreload`))return;for(let e of document.querySelectorAll(`link[rel="modulepreload"]`))n(e);new MutationObserver(e=>{for(let t of e)if(t.type===`childList`)for(let e of t.addedNodes)e.tagName===`LINK`&&e.rel===`modulepreload`&&n(e)}).observe(document,{childList:!0,subtree:!0});function t(e){let t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin===`use-credentials`?t.credentials=`include`:e.crossOrigin===`anonymous`?t.credentials=`omit`:t.credentials=`same-origin`,t}function n(e){if(e.ep)return;e.ep=!0;let n=t(e);fetch(e.href,n)}})();var e=[{propertyLocation:`Kensington, London`,priceGBP:89e4,roomsM2:[14,18,14,10,6],comment:`Highly desirable location in stunning scenery!`,image:`cottage.jpg`},{propertyLocation:`Wirral, Liverpool`,priceGBP:65e4,roomsM2:[18,16,15,14,17,19,9,8],comment:`Astonishing view with a modern finish!`,image:`desres.jpg`},{propertyLocation:`Beach, Brighton`,priceGBP:42e4,roomsM2:[5],comment:`Beautiful interior and a spacious room.`,image:`hut.jpg`},{propertyLocation:`Highlands, Scotland`,priceGBP:55e4,roomsM2:[6,12,11,5],comment:`Lots of potential, snug, a must see!`,image:`shed.jpg`}],t={propertyLocation:`1 Joe Bloggs street`,priceGBP:1e5,roomsM2:[16,12,6,11,5],comment:`This is the description`,image:`placeholder.jpg`};function n(e=[t]){return e.map(e=>{let{propertyLocation:t,priceGBP:n,roomsM2:r,comment:i,image:a}=e;return`
+            <section class="card">
+                <img src="/images/${a}">
+                <div class="card-right">
+                    <h2>${t}</h2>
+                    <h3>${n}</h3>
+                    <p>${i}</p>
+                    <h3>${r.reduce((e,t)=>e+t)} m&sup2;</h3>
+                </div>
+            </section>`}).join(``)}document.getElementById(`container`).innerHTML=n(e);
